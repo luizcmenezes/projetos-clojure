@@ -1,18 +1,20 @@
 (ns conversor.core
   (:require [clojure.tools.cli :refer [parse-opts]]
+            [cheshire.core :refer :all]
             [clj-http.client :as http-client])
   (:gen-class))
 
-(def opcoes-do-programa
-  [["-d" "--de moeda base" "moeda base para conversão" 
-    :default "eur"]
-   ["-p" "--para moeda destino" 
-         "moeda a qual queremos saber o valor"]])
-
-(def chave "18515e4519e56aaaf0f7")
+(def chave (System/getenv "CHAVE_API"))
 
 (def api-url
   "https://free.currencyconverterapi.com/api/v6/convert")
+
+(def usd-brl
+  (:body (http-client/get api-url
+          {:query-params {"q" "USD_BRL"
+                          "apiKey" chave}})))
+
+(parse-string usd-brl)
 
 (defn parametrizar-moedas [de para]
   (str de "_" para))
