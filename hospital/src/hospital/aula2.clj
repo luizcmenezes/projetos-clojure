@@ -24,3 +24,7 @@
   {:id id, :nome nome})
 
 (pprint (novo-paciente 15 "Guilherme"))
+
+;; Função pura, simples, altamente testavel
+(defn estritamente-positivo? [x]
+  (> x 0))
