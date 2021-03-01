@@ -32,3 +32,33 @@
 
 (pprint (novo-pedido (novo-paciente 15, "Guilherme"), 15.53, :raio-x))
 ;; (pprint (novo-pedido (novo-paciente -15, "Guilherme"), 15.53, :raio-x))
+
+(def Numeros [s/Num])
+(pprint (s/validate Numeros [15]))
+(pprint (s/validate Numeros [15, 13]))
+(pprint (s/validate Numeros [15, 13, 132, 132, 312, 23.2]))
+(pprint (s/validate Numeros [0]))
+;; nil não é número
+;; (pprint (s/validate Numeros [nil]))
+(pprint (s/validate Numeros []))
+;; Aqui é considerado um vetor valido de nil
+(pprint (s/validate Numeros nil))
+
+;; nil não é s/Num
+;; (pprint (s/validate s/Num nil))
+;; Mas pode ser uma sequência de tamanho nil então nil é um [s/Num]
+;; (pprint (s/validate [s/Num] nil))
+
+
+(def Plano [s/Keyword])
+(pprint (s/validate Plano [:raio-x]))
+
+(def Paciente
+  {:id PosInt, :nome s/Str, :plano Plano})
+
+(pprint (s/validate Paciente {:id 15, :nome "Guilherme", :plano [:raio-x, :ultrasom]}))
+(pprint (s/validate Paciente {:id 15, :nome "Guilherme", :plano [:raio-x]}))
+(pprint (s/validate Paciente {:id 15, :nome "Guilherme", :plano []}))
+(pprint (s/validate Paciente {:id 15, :nome "Guilherme", :plano nil}))
+;; plano é ma keyword obrigatória no mapa, mas ela pode ter um valor vazio (nil)
+;; (pprint (s/validate Paciente {:id 15, :nome "Guilherme"}))

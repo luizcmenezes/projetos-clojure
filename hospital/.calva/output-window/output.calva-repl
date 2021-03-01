@@ -18,14 +18,32 @@
 clj꞉hospital.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉hospital.core꞉> 
+<<<<<<< HEAD
 ; Evaluating file: aula3.clj
 {:id 15, :nome "Guilherme"}
 ; Syntax error (ExceptionInfo) compiling at (src/hospital/aula3.clj:17:1).
 ; Input to novo-paciente does not match schema: 
 
 	   [(named (not (pos-int? -15)) id) nil]  
+=======
+; Evaluating file: aula5.clj
+[:raio-x]
+; Syntax error macroexpanding clojure.core/defn at (src/hospital/aula5.clj:24:1).
+; :- - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+:- - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body
+; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
+>>>>>>> 2c037c62c91aa4cd7721c79cf67856c34a2a42aa
 
+clj꞉hospital.core꞉> 
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+[:raio-x]
+; Syntax error macroexpanding clojure.core/defn at (src/hospital/aula5.clj:24:1).
+; :- - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+:- - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body
+; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
 
+<<<<<<< HEAD
 ; Evaluation of file aula3.clj failed: class clojure.lang.Compiler$CompilerException
 
 clj꞉hospital.core꞉> 
@@ -72,3 +90,81 @@ clj꞉hospital.aula3꞉> 
  :procedimento :raio-x}
 nil
 clj꞉hospital.aula3꞉> 
+=======
+clj꞉hospital.aula5꞉> 
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+[:raio-x]
+#'hospital.aula5/imprime-relatorio-de-paciente
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+#'hospital.aula5/imprime-relatorio-de-paciente
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+; Syntax error (ExceptionInfo) compiling at (src/hospital/aula5.clj:53:1).
+; Input to adiciona-paciente does not match schema: 
+
+	   [nil (named {:plano missing-required-key} paciente)]  
+
+
+; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.aula5꞉> 
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 15 são (01/01/2019 01/03/2019)
+[01/02/2019 01/01/2020]
+nil
+clj꞉hospital.aula5꞉> 
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 15 são (01/01/2019 01/03/2019)
+[01/02/2019 01/01/2020]
+nil
+clj꞉hospital.aula5꞉> 
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 15 são (01/01/2019 01/03/2019)
+[01/02/2019 01/01/2020]
+nil
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 20 são [01/02/2019 01/01/2020]
+nil
+clj꞉hospital.aula5꞉> 
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 20 são [01/02/2019 01/01/2020]
+nil
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 15 são (01/01/2019 01/03/2019)
+nil
+clj꞉hospital.aula5꞉> 
+; Evaluating file: aula5.clj
+{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
+ 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
+ 25 {:id 25, :nome "Paulo", :plano []}}
+{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
+Visitas do paciente 15 são (01/01/2019 01/03/2019)
+nil
+clj꞉hospital.aula5꞉> 
+>>>>>>> 2c037c62c91aa4cd7721c79cf67856c34a2a42aa
