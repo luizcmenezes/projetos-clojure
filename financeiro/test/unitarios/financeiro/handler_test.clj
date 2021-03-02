@@ -2,7 +2,8 @@
   (:require [midje.sweet :refer :all]
             [ring.mock.request :as mock]
             [cheshire.core :as json]
-            [financeiro.handler :refer :all]))
+            [financeiro.handler :refer :all]
+            [financeiro.db :as db]))
 
 (facts "Dá um 'Olá, mundo!' na rota raiz"
        (let [response (app (mock/request :get "/"))]
@@ -23,8 +24,20 @@
        (let [response (app (mock/request :get "/saldo"))]
          (fact "o formato é 'aplication/json'"
                (get-in response [:headers "Content-Type"])
-               => "aplication/json; charset=utf-8")
+               => "application/json; charset=utf-8")
          (fact "o status da resposta é 200"
                (:status response) => 200)
          (fact "o texto do corpo é um JSON cuja chave é saldo e o valor é 0"
                (:body response) => "{\"saldo\":0}")))
+
+(facts "Registra uma receita no valor de 10"
+       (against-background (db/registrar {:valor 10
+                                          :tipo "receita"})
+                           => {:id 1 :valor 10 :tipo "receita"})
+       (let [response
+             (app (-> (mock/request :post "/transacoes")
+                      (mock/json-body {:valor 10 :tipo "receita"})))]
+         (fact "o status da resposta é 201"
+               (:status response) => 201)
+         (fact "o texto do corpo é um JSON com o conteúdo enviado e um id"
+               (:body response) => "{\"id\":1,\"valor\":10,\"tipo\":\"receita\"}")))
