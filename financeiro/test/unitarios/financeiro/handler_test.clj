@@ -32,11 +32,11 @@
 
 (facts "Registra uma receita no valor de 10"
        (against-background (db/registrar {:valor 10
-                                          :tipo "receita"})
-                           => {:id 1 :valor 10 :tipo "receita"})
+                                          :tipo "receita"}) => {:id 1 :valor 10 :tipo "receita"})
        (let [response
              (app (-> (mock/request :post "/transacoes")
-                      (mock/json-body {:valor 10 :tipo "receita"})))]
+                      (mock/json-body {:valor 10
+                                       :tipo "receita"})))]
          (fact "o status da resposta é 201"
                (:status response) => 201)
          (fact "o texto do corpo é um JSON com o conteúdo enviado e um id"

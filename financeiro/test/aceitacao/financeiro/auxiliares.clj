@@ -14,9 +14,11 @@
 
 (def porta-padrao 3001)
 
-(defn endereco-para [rota] (str "http://localhost:"
-                                porta-padrao rota))
+(defn endereco-para [rota]
+  (str "http://localhost:" porta-padrao rota))
 
-(def requisicao-para (comp http/get endereco-para))
+(def requisicao-para 
+  (comp http/get endereco-para))
 
-(defn conteudo [rota] (:body (requisicao-para rota)))
+(defn conteudo [rota] 
+  (:body (requisicao-para rota)))
