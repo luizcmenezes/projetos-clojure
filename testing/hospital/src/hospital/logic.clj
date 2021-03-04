@@ -1,8 +1,8 @@
 (ns hospital.logic)
 
-(defn cabe-na-fila? 
+(defn cabe-na-fila?
   [hospital depatarmento]
-  (-> hospital
-      depatarmento
-      count
-      (< 5)))
+  (some-> hospital
+          depatarmento
+          count
+          (< 5)))
