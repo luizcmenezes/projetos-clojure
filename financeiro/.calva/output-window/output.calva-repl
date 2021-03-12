@@ -5,7 +5,6 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
-; nREPL Connection was closed
 ; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.25.8"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
@@ -16,93 +15,7 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉user꞉> 
+clj꞉user꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉user꞉> 
-; Evaluating file: auxiliares.clj
-#'financeiro.auxiliares/conteudo
-clj꞉financeiro.auxiliares꞉> 
-#'financeiro.auxiliares/porta-padrao
-clj꞉financeiro.auxiliares꞉> 
-(iniciar-servidor 3001)
-#object[org.eclipse.jetty.server.Server 0xcaca59e "Server@caca59e{STARTED}[9.4.12.v20180830]"]
-clj꞉financeiro.auxiliares꞉> 
-@servidor
-#object[org.eclipse.jetty.server.Server 0xcaca59e "Server@caca59e{STARTED}[9.4.12.v20180830]"]
-clj꞉financeiro.auxiliares꞉> 
-; Evaluating file: saldo_aceitacao_test.clj
-Run `(doc midje)` for Midje usage.
-; Syntax error (BindException) compiling at (saldo_aceitacao_test.clj:7:1).
-; Endereço já em uso
-; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
-; clj-http: status 500
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-; Evaluation of file saldo_aceitacao_test.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-(http/post (endereco-para "/transacoes")
-           {:body (json/generate-string {:valor 10 :tipo "receita"})})
-; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
-; clj-http: status 500
-clj꞉financeiro.saldo-aceitacao-test꞉> (json/parse-string (conteudo "/saldo") true)
-{:saldo 0}
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-; Evaluating file: handler.clj
-#'financeiro.handler/app
-clj꞉financeiro.handler꞉> 
-(doc POST)
-; Syntax error compiling at (output.calva-repl:54:1).
-; Unable to resolve symbol: doc in this context
-clj꞉financeiro.handler꞉> 
-(require '[clojure.repl :refer [doc]])
-nil
-clj꞉financeiro.handler꞉> 
-(doc POST)
--------------------------
-compojure.core/POST
-([path args & body])
-Macro
-  Generate a `POST` route.
-nil
-clj꞉financeiro.handler꞉> 
-; Evaluating file: db.clj
-#'financeiro.db/registrar
-clj꞉financeiro.db꞉> 
-; Evaluating file: handler.clj
-; Syntax error compiling at (handler.clj:21:16).
-; Unable to resolve symbol: dgb in this context
-; Evaluation of file handler.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉financeiro.db꞉> 
-clj꞉financeiro.handler꞉> 
-; Evaluating file: saldo_aceitacao_test.clj
-; Syntax error (BindException) compiling at (saldo_aceitacao_test.clj:7:1).
-; Endereço já em uso
-; Evaluation of file saldo_aceitacao_test.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉financeiro.handler꞉> 
-clj꞉financeiro.saldo-aceitacao-test꞉> (http/post (endereco-para "/transacoes")
-                                                 {:body (json/generate-string {:valor 10 :tipo "receita"})})
-; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
-; clj-http: status 500
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-; Evaluating file: handler.clj
-; Syntax error compiling at (handler.clj:21:16).
-; Unable to resolve symbol: dgb in this context
-; Evaluation of file handler.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉financeiro.saldo-aceitacao-test꞉> 
-clj꞉financeiro.handler꞉> 
-@dbg
-:financeiro.handler/nada
-clj꞉financeiro.handler꞉> 
-(doc POST)
--------------------------
-compojure.core/POST
-([path args & body])
-Macro
-  Generate a `POST` route.
-nil
-clj꞉financeiro.handler꞉> 
 ; nREPL Connection was closed

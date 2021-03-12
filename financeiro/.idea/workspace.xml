@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224da7dc-8c6c-4039-a73b-a38b41169d34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.lsp/sqlite.db" beforeDir="false" afterPath="$PROJECT_DIR$/.lsp/sqlite.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.calva/output-window/output.calva-repl" beforeDir="false" afterPath="$PROJECT_DIR$/.calva/output-window/output.calva-repl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/financeiro/db.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/financeiro/db.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/financeiro/handler.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/financeiro/handler.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/aceitacao/financeiro/auxiliares.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/aceitacao/financeiro/auxiliares.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/aceitacao/financeiro/saldo_aceitacao_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/aceitacao/financeiro/saldo_aceitacao_test.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/unitarios/financeiro/db_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/unitarios/financeiro/db_test.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/unitarios/financeiro/handler_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/unitarios/financeiro/handler_test.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testing/hospital/.calva/output-window/output.calva-repl" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/.calva/output-window/output.calva-repl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testing/hospital/src/hospital/logic.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/src/hospital/logic.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testing/hospital/test/hospital/logic_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/test/hospital/logic_test.clj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +32,54 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="ReplState" timestamp="1615457860477">{:repl-history {:ide [], :local [], :remote []}}</component>
+  <component name="RunManager">
+    <configuration name="REPL for financeiro" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="financeiro" />
+      <setting name="displayName" value="REPL for financeiro" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Clojure REPL.REPL for financeiro" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -47,5 +102,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
