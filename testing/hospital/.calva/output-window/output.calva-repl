@@ -19,51 +19,188 @@ clj꞉hospital.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉hospital.core꞉> 
 ; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
+; Syntax error reading source at (test/hospital/logic_test.clj:64:10).
+; Unmatched delimiter: )
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.core꞉> 
 ; Running tests for hospital.logic-test...
-; 4 tests finished, all passing 👍, ns: 1, vars: 1
+; 8 tests finished, all passing 👍, ns: 1, vars: 2
 clj꞉hospital.logic-test꞉> 
 ; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
+#error {
+ :cause "Não cabe ninguém neste departamento"
+ :data {:paciente 76}
+ :via
+ [{:type clojure.lang.ExceptionInfo
+   :message "Não cabe ninguém neste departamento"
+   :data {:paciente 76}
+   :at [hospital.logic$chega_em invokeStatic "logic.clj" 44]}]
+ :trace
+ [[hospital.logic$chega_em invokeStatic "logic.clj" 44]
+  [hospital.logic$chega_em invoke "logic.clj" 40]
+  [hospital.logic_test$eval5988 invokeStatic "logic_test.clj" 49]
+  [hospital.logic_test$eval5988 invoke "logic_test.clj" 44]
+  [clojure.lang.Compiler eval "Compiler.java" 7177]
+  [clojure.lang.Compiler load "Compiler.java" 7636]
+  [hospital.logic_test$eval5932 invokeStatic "form-init14688925677163570493.clj" 1]
+  [hospital.logic_test$eval5932 invoke "form-init14688925677163570493.clj" 1]
+  [clojure.lang.Compiler eval "Compiler.java" 7177]
+  [clojure.lang.Compiler eval "Compiler.java" 7132]
+  [clojure.core$eval invokeStatic "core.clj" 3214]
+  [clojure.core$eval invoke "core.clj" 3210]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__963$fn__964 invoke "interruptible_eval.clj" 87]
+  [clojure.lang.AFn applyToHelper "AFn.java" 152]
+  [clojure.lang.AFn applyTo "AFn.java" 144]
+  [clojure.core$apply invokeStatic "core.clj" 665]
+  [clojure.core$with_bindings_STAR_ invokeStatic "core.clj" 1973]
+  [clojure.core$with_bindings_STAR_ doInvoke "core.clj" 1973]
+  [clojure.lang.RestFn invoke "RestFn.java" 425]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__963 invoke "interruptible_eval.clj" 87]
+  [clojure.main$repl$read_eval_print__9086$fn__9089 invoke "main.clj" 437]
+  [clojure.main$repl$read_eval_print__9086 invoke "main.clj" 437]
+  [clojure.main$repl$fn__9095 invoke "main.clj" 458]
+  [clojure.main$repl invokeStatic "main.clj" 458]
+  [clojure.main$repl doInvoke "main.clj" 368]
+  [clojure.lang.RestFn invoke "RestFn.java" 1523]
+  [nrepl.middleware.interruptible_eval$evaluate invokeStatic "interruptible_eval.clj" 84]
+  [nrepl.middleware.interruptible_eval$evaluate invoke "interruptible_eval.clj" 56]
+  [nrepl.middleware.interruptible_eval$interruptible_eval$fn__994$fn__998 invoke "interruptible_eval.clj" 152]
+  [clojure.lang.AFn run "AFn.java" 22]
+  [nrepl.middleware.session$session_exec$main_loop__1061$fn__1065 invoke "session.clj" 202]
+  [nrepl.middleware.session$session_exec$main_loop__1061 invoke "session.clj" 201]
+  [clojure.lang.AFn run "AFn.java" 22]
+  [java.lang.Thread run "Thread.java" 832]]}
 ; Running tests for hospital.logic-test...
-; 5 tests finished, all passing 👍, ns: 1, vars: 1
+; 8 tests finished, all passing 👍, ns: 1, vars: 2
 clj꞉hospital.logic-test꞉> 
 ; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
+; Syntax error reading source at (test/hospital/logic_test.clj:64:10).
+; Unmatched delimiter: )
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
 clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
 ; Running tests for hospital.logic-test...
-; FAIL in hospital.logic-test/cabe-na-fila?-test (logic_test.clj:24):
-; Quando o departamento não existe
+; 8 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/chega-em-test
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/chega-em-test
+; Running tests for hospital.logic-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/chega-em-test
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/tranfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic꞉> 
+; Running tests for hospital.logic-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:71:13).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 10 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:76:11).
+; Unable to resolve symbol: throw? in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:76:11).
+; Unable to resolve symbol: throw? in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+; 10 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 11 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; FAIL in hospital.logic-test/transfere-test (logic_test.clj:74):
+; aceita pessoas se cabe
 ; expected:
-(not (cabe-na-fila? {:espera [1 2 3 4]} :raio-x))
+{:espera [5], :raio-x [13 51]}
 ; actual:
-(not (not true))
-; 6 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 1
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic.clj
-#'hospital.logic/cabe-na-fila?
-clj꞉hospital.logic꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
-; Running tests for hospital.logic-test...
-; 6 tests finished, all passing 👍, ns: 1, vars: 1
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic.clj
-#'hospital.logic/cabe-na-fila?
-clj꞉hospital.logic꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/cabe-na-fila?-test
-; Running tests for hospital.logic-test...
-; 6 tests finished, all passing 👍, ns: 1, vars: 1
+({:espera [51], :raio-x [13 5]})
+; 12 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 3
 clj꞉hospital.logic-test꞉> 
