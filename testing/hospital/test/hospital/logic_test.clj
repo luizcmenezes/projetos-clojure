@@ -1,7 +1,6 @@
 (ns hospital.logic-test
-  (:use clojure.pprint)
-  (:require [clojure.test :refer :all]
-            [hospital.logic :refer :all]
+  (:require [clojure.test :refer [deftest testing is]]
+            [hospital.logic :as lg]
             [hospital.model :as h.model]))
 
 (deftest cabe-na-fila?-test
@@ -13,7 +12,7 @@
 
   ; borda do zero
   (testing "Que cabe numa fila vazia"
-    (is (cabe-na-fila? {:espera []}, :espera)))
+    (is (lg/cabe-na-fila? {:espera []}, :espera)))
 
   ; borda do limite
   (testing "Que não cabe na fila quando a fila está cheia"
@@ -24,19 +23,19 @@
 
     ; não precisa ser sequencial e no mundo real não é
     ; portanto faça testes que não são sequenciais!
-    (is (not (cabe-na-fila? {:espera [1 5 37 54 21]}, :espera))))
+    (is (not (lg/cabe-na-fila? {:espera [1 5 37 54 21]}, :espera))))
 
   ; one off da borda do limite pra cima
   (testing "Que não cabe na fila quando tem mais do que uma fila cheia"
-    (is (not (cabe-na-fila? {:espera [1 2 3 4 5 6]}, :espera))))
+    (is (not (lg/cabe-na-fila? {:espera [1 2 3 4 5 6]}, :espera))))
 
   ; dentro das bordas
   (testing "Que cabe na fila quando tem gente mas não está cheia"
-    (is (cabe-na-fila? {:espera [1 2 3 4]}, :espera))
-    (is (cabe-na-fila? {:espera [1 2]}, :espera)))
+    (is (lg/cabe-na-fila? {:espera [1 2 3 4]}, :espera))
+    (is (lg/cabe-na-fila? {:espera [1 2]}, :espera)))
 
   (testing "Que não cabe quando o departamento não existe"
-    (is (not (cabe-na-fila? {:espera [1 2 3 4]}, :raio-x)))))
+    (is (not (lg/cabe-na-fila? {:espera [1 2 3 4]}, :raio-x)))))
 
 (deftest chega-em-test
 
@@ -50,11 +49,11 @@
       ;       (chega-em {:espera [1, 2]}, :espera, 5)))
 
       (is (= {:espera [1, 2, 3, 4, 5]}
-             (chega-em {:espera [1, 2, 3, 4]}, :espera, 5)))
+             (lg/chega-em {:espera [1, 2, 3, 4]}, :espera, 5)))
 
       ; teste não sequencial
       (is (= {:espera [1, 2, 5]}
-             (chega-em {:espera [1, 2]}, :espera, 5)))
+             (lg/chega-em {:espera [1, 2]}, :espera, 5)))
 
       ;
       ;(is (= {:hospital {:espera [1, 2, 3, 4, 5]}, :resultado :sucesso}
@@ -71,7 +70,7 @@
       ; mas qq outro erro generico vai jogar essa exception, e nós vamos achar que deu certo
       ; quando deu errado
       (is (thrown? clojure.lang.ExceptionInfo
-                   (chega-em hospital-cheio, :espera 76)))
+                   (lg/chega-em hospital-cheio, :espera 76)))
 
       ; mesmo que eu escolha uma exception do genero, perigoso!
       ;(is (thrown? IllegalStateException
@@ -102,18 +101,19 @@
 
 (deftest transfere-test
   (testing "aceita pessoas se cabe"
-    (let [hospital-original {:espera [5], :raio-x []}]
+    (let [hospital-original {:espera (conj h.model/fila-vazia 5), :raio-x []}]
       (is (= {:espera []
               :raio-x [5]}
-             (transfere hospital-original :espera :raio-x))))
+             (lg/transfere hospital-original :espera :raio-x))))
 
-    (let [hospital-original {:espera (conj h.model/fila-vazia 51 5), :raio-x (conj h.model/fila-vazia 13)}]
-      (pprint (transfere hospital-original :espera :raio-x))
+    (let [hospital-original {:espera (conj h.model/fila-vazia 51 5), 
+                             :raio-x (conj h.model/fila-vazia 13)}]
       (is (= {:espera [5]
               :raio-x [13 51]}
-             (transfere hospital-original :espera :raio-x)))))
+             (lg/transfere hospital-original :espera :raio-x)))))
 
   (testing "recusa pessoas se não cabe"
-    (let [hospital-cheio {:espera [5], :raio-x [1 2 53 42 13]}]
+    (let [hospital-cheio {:espera (conj h.model/fila-vazia 5) :raio-x (conj h.model/fila-vazia 1 2 53 42 13)}]
       (is (thrown? clojure.lang.ExceptionInfo
-                   (transfere hospital-cheio :espera :raio-x))))))
+                   (lg/transfere hospital-cheio :espera :raio-x)))))
+  )

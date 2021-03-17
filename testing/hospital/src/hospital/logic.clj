@@ -60,5 +60,5 @@
   [hospital de para]
   (let [pessoa (proxima hospital de)]
     (-> hospital
-        (atende de )
+        (atende de)
         (chega-em para pessoa))))
