@@ -109,7 +109,7 @@
               :raio-x ["5"]}
              (lg/transfere hospital-original :espera :raio-x))))
 
-    (let [hospital-original {:espera (conj h.model/fila-vazia "51" "5"), 
+    (let [hospital-original {:espera (conj h.model/fila-vazia "51" "5")
                              :raio-x (conj h.model/fila-vazia "13")}]
       (is (= {:espera ["5"]
               :raio-x ["13" "51"]}
@@ -119,4 +119,13 @@
     (let [hospital-cheio {:espera (conj h.model/fila-vazia "5") :raio-x (conj h.model/fila-vazia "1" "2" "53" "42" "13")}]
       (is (thrown? clojure.lang.ExceptionInfo
                    (lg/transfere hospital-cheio :espera :raio-x)))))
+
+  (testing "Não pode invocar transferência sem hospital"
+    (is (thrown? clojure.lang.ExceptionInfo (lg/transfere nil :espera :raio-x))))
+
+  (testing "condições obrigatórias"
+    (let [hospital {:espera (conj h.model/fila-vazia "5") :raio-x (conj h.model/fila-vazia "2" "53" "42" "13")}]
+      (is (thrown? AssertionError (lg/transfere hospital :nao-existe :raio-x)))
+      (is (thrown? AssertionError (lg/transfere hospital :raio-x :nao-existe)))))
+  
   )
