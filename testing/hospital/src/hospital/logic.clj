@@ -1,4 +1,7 @@
-(ns hospital.logic)
+(ns hospital.logic
+  (:require [hospital.model :as h.model]
+            [schema.core :as s]))
+
 
 (defn cabe-na-fila?
   [hospital depatarmento]
@@ -44,20 +47,20 @@
     (throw (ex-info "Não cabe ninguém neste departamento" {:paciente pessoa}))))
 
 
-(defn atende
-  [hospital departamento]
+(s/defn atende :- h.model/Hospital
+  [hospital :- h.model/Hospital departamento :- s/Keyword]
   (update hospital departamento pop))
 
-(defn proxima
+(s/defn proxima :- h.model/PacienteID
   "Retorna o próximo paciente da fila"
-  [hospital departamento]
+  [hospital :- h.model/Hospital departamento :- s/Keyword]
   (-> hospital
       departamento
       peek))
 
-(defn transfere
+(s/defn transfere :- h.model/Hospital
   "Transfere o próximo paciente da fila de para a fila para"
-  [hospital de para]
+  [hospital :- h.model/Hospital de :- s/Keyword para :- s/Keyword]
   (let [pessoa (proxima hospital de)]
     (-> hospital
         (atende de)

@@ -10,10 +10,10 @@
    :laboratorio3 fila-vazia})
 
 (s/def PacienteID s/Str)
-(s/def Departamento [PacienteID])
+(s/def Departamento (s/queue PacienteID))
 (s/def Hospital {s/Keyword Departamento})
 
 ;; (s/validate PacienteID "Guilherme")
 ;; (s/validate PacienteID 15)
-;; (s/validate Departamento ["Guilherme" "Daniela"])
-;; (s/validate Hospital {:espera ["Guilherme" "Daniela"]})
+;; (s/validate Departamento  (conj fila-vazia "Guilherme" "Daniela"))
+;; (s/validate Hospital {:espera (conj fila-vazia "Guilherme" "Daniela")})

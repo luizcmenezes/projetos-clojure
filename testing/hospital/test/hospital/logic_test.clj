@@ -1,7 +1,10 @@
 (ns hospital.logic-test
   (:require [clojure.test :refer [deftest testing is]]
             [hospital.logic :as lg]
-            [hospital.model :as h.model]))
+            [hospital.model :as h.model]
+            [schema.core :as s]))
+
+(s/set-fn-validation! true)
 
 (deftest cabe-na-fila?-test
 
@@ -101,19 +104,19 @@
 
 (deftest transfere-test
   (testing "aceita pessoas se cabe"
-    (let [hospital-original {:espera (conj h.model/fila-vazia 5), :raio-x []}]
+    (let [hospital-original {:espera (conj h.model/fila-vazia "5"), :raio-x h.model/fila-vazia}]
       (is (= {:espera []
-              :raio-x [5]}
+              :raio-x ["5"]}
              (lg/transfere hospital-original :espera :raio-x))))
 
-    (let [hospital-original {:espera (conj h.model/fila-vazia 51 5), 
-                             :raio-x (conj h.model/fila-vazia 13)}]
-      (is (= {:espera [5]
-              :raio-x [13 51]}
+    (let [hospital-original {:espera (conj h.model/fila-vazia "51" "5"), 
+                             :raio-x (conj h.model/fila-vazia "13")}]
+      (is (= {:espera ["5"]
+              :raio-x ["13" "51"]}
              (lg/transfere hospital-original :espera :raio-x)))))
 
   (testing "recusa pessoas se não cabe"
-    (let [hospital-cheio {:espera (conj h.model/fila-vazia 5) :raio-x (conj h.model/fila-vazia 1 2 53 42 13)}]
+    (let [hospital-cheio {:espera (conj h.model/fila-vazia "5") :raio-x (conj h.model/fila-vazia "1" "2" "53" "42" "13")}]
       (is (thrown? clojure.lang.ExceptionInfo
                    (lg/transfere hospital-cheio :espera :raio-x)))))
   )
