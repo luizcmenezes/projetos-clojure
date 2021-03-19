@@ -185,3 +185,81 @@ clj꞉hospital.logic꞉> 
 ; Running previously failed tests…
 ; 6 tests finished, all passing 👍, ns: 1, vars: 1
 clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 15 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 15 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; ERROR in hospital.logic-test/transfere-test (line 106):
+; aceita pessoas se cabe
+; error: java.lang.AssertionError: Assert failed: (= (+ (count (get % de)) (count (get % para))) (+ (count (get hospital de)) (count (get hospital para)))) (logic.clj)
+; expected:
+(= {:espera [], :raio-x [5]} (lg/transfere hospital-original :espera :raio-x))
+; ERROR in hospital.logic-test/transfere-test (line 106):
+; aceita pessoas se cabe
+; error: java.lang.AssertionError: Assert failed: (= (+ (count (get % de)) (count (get % para))) (+ (count (get hospital de)) (count (get hospital para)))) (logic.clj)
+; expected:
+(= {:espera [5], :raio-x [13 51]} (lg/transfere hospital-original :espera :raio-x))
+; 15 tests finished, problems found. 😭 errors: 2, failures: 0, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running previously failed tests…
+; ERROR in hospital.logic-test/transfere-test (line 106):
+; aceita pessoas se cabe: 
+; error: java.lang.AssertionError: Assert failed: (= (+ (count (get % de)) (count (get % para))) (+ (count (get hospital de)) (count (get hospital para)))) (logic.clj)
+; expected:
+(= {:espera [], :raio-x [5]} (lg/transfere hospital-original :espera :raio-x))
+; ERROR in hospital.logic-test/transfere-test (line 106):
+; aceita pessoas se cabe: 
+; error: java.lang.AssertionError: Assert failed: (= (+ (count (get % de)) (count (get % para))) (+ (count (get hospital de)) (count (get hospital para)))) (logic.clj)
+; expected:
+(= {:espera [5], :raio-x [13 51]} (lg/transfere hospital-original :espera :raio-x))
+; 6 tests finished, problems found. 😭 errors: 2, failures: 0, ns: 1, vars: 1
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running previously failed tests…
+; 6 tests finished, all passing 👍, ns: 1, vars: 1
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+; Syntax error compiling def at (src/hospital/logic.clj:61:1).
+; Too many arguments to def
+; Evaluation of file logic.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/transfere
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-test
+; Running tests for hospital.logic-test...
+; 15 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 

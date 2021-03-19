@@ -126,6 +126,4 @@
   (testing "condições obrigatórias"
     (let [hospital {:espera (conj h.model/fila-vazia "5") :raio-x (conj h.model/fila-vazia "2" "53" "42" "13")}]
       (is (thrown? AssertionError (lg/transfere hospital :nao-existe :raio-x)))
-      (is (thrown? AssertionError (lg/transfere hospital :raio-x :nao-existe)))))
-  
-  )
+      (is (thrown? AssertionError (lg/transfere hospital :raio-x :nao-existe))))))
