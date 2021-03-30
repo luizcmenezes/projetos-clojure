@@ -42,10 +42,33 @@
 ;;       )
 ;;     ))
 
-(defspec explorando-a-api 10
+(defspec coloca-uma-pessoa-em-filas-menores-que-5 100
   (prop/for-all
    [fila (gen/vector gen/string-alphanumeric 0 4)
     pessoa gen/string-alphanumeric]
-   (println pessoa fila)
-   true
+   (is (= {:espera (conj fila pessoa)}
+          (lg/chega-em {:espera fila} :espera pessoa)))))
+
+(def nome-aleatorio-gen
+  (gen/fmap clojure.string/join
+            (gen/vector gen/char-alphanumeric 5 10)))
+
+(defn transforma-vetor-em-fila [vetor]
+  (reduce conj h.model/fila-vazia vetor))
+
+(def fila-nao-cheia-gen 
+  (gen/fmap
+   transforma-vetor-em-fila
+   (gen/vector nome-aleatorio-gen 1 4)))
+
+(defspec transfere-tem-que-manter-a-quantidade-de-pessoas 5
+  (prop/for-all
+   [espera fila-nao-cheia-gen
+    raio-x fila-nao-cheia-gen
+    ultrasom fila-nao-cheia-gen
+    vai-para (gen/elements [:raio-x :ultrasom])]
+   (let [hospital-inicial {:espera espera, :raio-x raio-x, :ultrasom ultrasom}
+         hospital-final (lg/transfere hospital-inicial :espera vai-para)]
+     (= (lg/total-de-pacientes hospital-inicial)
+        (lg/total-de-pacientes hospital-final)))
    ))

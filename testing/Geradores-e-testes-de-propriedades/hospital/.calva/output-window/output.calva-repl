@@ -15,35 +15,351 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉hospital.core꞉> 
+clj꞉hospital.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉hospital.core꞉> 
 ; Evaluating file: logic_test.clj
-#'hospital.logic-test/explorando-a-api
-clj꞉hospital.logic-test꞉> 
-#'hospital.logic-test/explorando-a-api
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/explorando-a-api
-clj꞉hospital.logic-test꞉> 
-#'hospital.logic-test/explorando-a-api
-clj꞉hospital.logic-test꞉> 
-#clojure.test.check.generators.Generator{:gen #function[clojure.test.check.generators/gen-fmap/fn--439]}
-clj꞉hospital.logic-test꞉> 
-#'hospital.logic-test/explorando-a-api
-clj꞉hospital.logic-test꞉> 
-; Evaluating file: logic_test.clj
-#'hospital.logic-test/explorando-a-api
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
 ; Running tests for hospital.logic-test...
- [ ]
-a [  ]
-N [ l5 i8 4]
-x [Q iS Vre]
-985n [MU75  8]
-t0pc [133 ]
- [OKg7 435H b5]
-cSk3C [W5nMGZ1  3q9 ]
-d9 []
-u1S6kI [f1034N65 73a1z w8V]
-; 107 tests finished, all passing 👍, ns: 1, vars: 2
+[[0 m e P 1] [n 7 A u 5 b 9 8] [9 O 8 1 J]]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[Zbcj635aco l88hsri FLWKOcOhsB 7aLmXSWm]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[] [qTLxrDZ T4yFT2zp8 23ZhA86Ni 6X31Jgy]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[] []
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[tiSH7ZR4 SAI6bGx4W] [V1Rw6RMU53 b3sVs4]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[] [DHn8Fgrk2 zEY110b4 6UpLUBZpra]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[] [7Z475P7Jm 05K7mPW8E7]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[Bl9xowE] [8tX13Ng KX4s4f W3FcF4nyJ 2exJg0E]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[] [kn7Nw8 k3Q00MS1]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+[b7397 uq32sYub ENY8563s 433ASdH] [52vBg3gQi6 tM6CQRIYF2 pImqE] [xaevD 72D940ZtH yytvVc3eZ8 9t84y5dN]
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:66:4).
+; Unable to resolve symbol: transfere in this context
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Syntax error compiling at (test/hospital/logic_test.clj:66:4).
+; Unable to resolve symbol: transfere in this context
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+:ultrasom
+:ultrasom
+:ultrasom
+:raio-x
+; ERROR in hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas (line 58):
+; Uncaught exception, not in assertion
+; error: clojure.lang.ExceptionInfo: Input to transfere does not match schema: 
+
+	   [(named {:espera (not (queue? [])), :raio-x (not (queue? ["SB567"])), :ultrasom (not (queue? ["36D5vIObr3"]))} hospital) nil nil]  
+
+ {:type :schema.core/error, :schema [#schema.core.One{:schema {Keyword (queue Str)}, :optional? false, :name hospital} #schema.core.One{:schema Keyword, :optional? false, :name de} #schema.core.One{:schema Keyword, :optional? false, :name para}], :value [{:espera [], :raio-x ["SB567"], :ultrasom ["36D5vIObr3"]} :espera :ultrasom], :error [(named {:espera (not (queue? [])), :raio-x (not (queue? ["SB567"])), :ultrasom (not (queue? ["36D5vIObr3"]))} hospital) nil nil]} (logic.clj)
+; expected:
+undefined
+; 208 tests finished, problems found. 😭 errors: 1, failures: 0, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:66:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+:raio-x
+; ERROR in hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas (line 58):
+; Uncaught exception, not in assertion
+; error: clojure.lang.ExceptionInfo: Input to transfere does not match schema: 
+
+	   [(named {:espera (not (queue? a-clojure.lang.PersistentVector)), :raio-x (not (queue? ["f976Z069w"])), :ultrasom (not (queue? ["98493qlAvf"]))} hospital) nil nil]  
+
+ {:type :schema.core/error, :schema [#schema.core.One{:schema {Keyword (queue Str)}, :optional? false, :name hospital} #schema.core.One{:schema Keyword, :optional? false, :name de} #schema.core.One{:schema Keyword, :optional? false, :name para}], :value [{:espera ["f6K5i" "9Sqh628QP" "6mMM5A" "M0QgPF3E"], :raio-x ["f976Z069w"], :ultrasom ["98493qlAvf"]} :espera :raio-x], :error [(named {:espera (not (queue? a-clojure.lang.PersistentVector)), :raio-x (not (queue? ["f976Z069w"])), :ultrasom (not (queue? ["98493qlAvf"]))} hospital) nil nil]} (logic.clj)
+; expected:
+undefined
+; 208 tests finished, problems found. 😭 errors: 1, failures: 0, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:ultrasom
+:ultrasom
+:ultrasom
+:raio-x
+; ERROR in hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas (line 58):
+; Uncaught exception, not in assertion
+; error: clojure.lang.ExceptionInfo: Output of proxima does not match schema: 
+
+	   (not (instance? java.lang.String nil))  
+
+ {:type :schema.core/error, :schema java.lang.String, :value nil, :error (not (instance? java.lang.String nil))} (logic.clj)
+; expected:
+undefined
+; 208 tests finished, problems found. 😭 errors: 1, failures: 0, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:ultrasom
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:13).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:9).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:9).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+; Running tests for hospital.logic-test...
+:raio-x
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+; Syntax error compiling at (test/hospital/logic_test.clj:72:9).
+; No such var: lg/total-de-pacientes
+; Evaluation of file logic_test.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉hospital.logic-test꞉> 
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic.clj
+#'hospital.logic/total-de-pacientes
+clj꞉hospital.logic꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+; ERROR in hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas (line 64):
+; Uncaught exception, not in assertion
+; error: clojure.lang.ExceptionInfo: Input to transfere does not match schema: 
+
+	   [nil nil (named (not (keyword? [])) para)]  
+
+ {:type :schema.core/error, :schema [#schema.core.One{:schema {Keyword (queue Str)}, :optional? false, :name hospital} #schema.core.One{:schema Keyword, :optional? false, :name de} #schema.core.One{:schema Keyword, :optional? false, :name para}], :value [{:espera #object[clojure.lang.PersistentQueue 0x73abad40 "clojure.lang.PersistentQueue@2d467cee"], :raio-x #object[clojure.lang.PersistentQueue 0xc5086dc "clojure.lang.PersistentQueue@fc61ad14"], :ultrasom #object[clojure.lang.PersistentQueue 0x21b5b95f "clojure.lang.PersistentQueue@92e0eac1"]} :espera []], :error [nil nil (named (not (keyword? [])) para)]} (logic.clj)
+; expected:
+undefined
+; 208 tests finished, problems found. 😭 errors: 1, failures: 0, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+; 213 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/transfere-tem-que-manter-a-quantidade-de-pessoas
+; Running tests for hospital.logic-test...
+; 208 tests finished, all passing 👍, ns: 1, vars: 3
 clj꞉hospital.logic-test꞉> 

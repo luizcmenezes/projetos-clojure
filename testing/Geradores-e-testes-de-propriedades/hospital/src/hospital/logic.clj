@@ -42,3 +42,6 @@
     (-> hospital
         (atende de)
         (chega-em para pessoa))))
+
+(defn total-de-pacientes [hospital]
+  (reduce + (map count (vals hospital))))
