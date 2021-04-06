@@ -56,19 +56,39 @@
 (defn transforma-vetor-em-fila [vetor]
   (reduce conj h.model/fila-vazia vetor))
 
-(def fila-nao-cheia-gen 
+(def fila-nao-cheia-gen
   (gen/fmap
    transforma-vetor-em-fila
-   (gen/vector nome-aleatorio-gen 1 4)))
+   (gen/vector nome-aleatorio-gen 0 4)))
 
-(defspec transfere-tem-que-manter-a-quantidade-de-pessoas 5
+;; (defn transfere-ignorando-erro [hospital para]
+;;   (try
+;;     (lg/transfere hospital :espera para)
+;;     (catch clojure.lang.ExceptionInfo e
+;;       (cond
+;;         (= :fila-cheia (:type (ex-data e))) hospital
+;;         :else (throw e))
+;;       ;; (println "falhou" (ex-date e))
+;;       ;; hospital
+;;       )))
+
+(defn transfere-ignorando-erro [hospital para]
+  (try
+    (lg/transfere hospital :espera para)
+    (catch IllegalStateException e
+      (println "falhou")
+      hospital
+      )))
+
+(defspec transfere-tem-que-manter-a-quantidade-de-pessoas 1
   (prop/for-all
-   [espera fila-nao-cheia-gen
+   [espera (gen/fmap transforma-vetor-em-fila (gen/vector nome-aleatorio-gen 0 50))
     raio-x fila-nao-cheia-gen
     ultrasom fila-nao-cheia-gen
-    vai-para (gen/elements [:raio-x :ultrasom])]
+    vai-para (gen/vector (gen/elements [:raio-x :ultrasom]) 0 50)]
+  ;;  (println (count espera) (count vai-para) vai-para)
    (let [hospital-inicial {:espera espera, :raio-x raio-x, :ultrasom ultrasom}
-         hospital-final (lg/transfere hospital-inicial :espera vai-para)]
+         hospital-final (reduce transfere-ignorando-erro hospital-inicial vai-para)]
+    ;;  (println (count (get hospital-final :raio-x)))
      (= (lg/total-de-pacientes hospital-inicial)
-        (lg/total-de-pacientes hospital-final)))
-   ))
+        (lg/total-de-pacientes hospital-final)))))
