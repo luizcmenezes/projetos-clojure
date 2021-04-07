@@ -1,11 +1,13 @@
 (ns hospital.logic-test
+  (:use clojure.pprint)
   (:require [clojure.test :refer [deftest testing is]]
-            [hospital.logic :as lg]
+            [hospital.logic :as h.logic]
             [hospital.model :as h.model]
             [clojure.test.check.generators :as gen]
             [clojure.test.check.clojure-test :refer (defspec)]
             [clojure.test.check.properties :as prop]
-            [schema.core :as s]))
+            [schema.core :as s]
+            [schema-generators.generators :as g]))
 
 (s/set-fn-validation! true)
 
@@ -13,25 +15,25 @@
 (deftest cabe-na-fila?-test
 
   (testing "Que cabe numa fila vazia"
-    (is (lg/cabe-na-fila? {:espera []}, :espera)))
+    (is (h.logic/cabe-na-fila? {:espera []}, :espera)))
 
   (testing "Que cabe pessoas em filas de tamanho até 4 inclusive"
     (doseq [fila (gen/sample (gen/vector gen/string-alphanumeric 0 4) 100)]
-      (is (lg/cabe-na-fila? {:espera fila} :espera))))
+      (is (h.logic/cabe-na-fila? {:espera fila} :espera))))
 
   (testing "Que não cabe na fila quando a fila está cheia"
 
-    (is (not (lg/cabe-na-fila? {:espera [1 5 37 54 21]}, :espera))))
+    (is (not (h.logic/cabe-na-fila? {:espera [1 5 37 54 21]}, :espera))))
 
   (testing "Que não cabe na fila quando tem mais do que uma fila cheia"
-    (is (not (lg/cabe-na-fila? {:espera [1 2 3 4 5 6]}, :espera))))
+    (is (not (h.logic/cabe-na-fila? {:espera [1 2 3 4 5 6]}, :espera))))
 
   (testing "Que cabe na fila quando tem gente mas não está cheia"
-    (is (lg/cabe-na-fila? {:espera [1 2 3 4]}, :espera))
-    (is (lg/cabe-na-fila? {:espera [1 2]}, :espera)))
+    (is (h.logic/cabe-na-fila? {:espera [1 2 3 4]}, :espera))
+    (is (h.logic/cabe-na-fila? {:espera [1 2]}, :espera)))
 
   (testing "Que não cabe quando o departamento não existe"
-    (is (not (lg/cabe-na-fila? {:espera [1 2 3 4]}, :raio-x)))))
+    (is (not (h.logic/cabe-na-fila? {:espera [1 2 3 4]}, :raio-x)))))
 
 ;; (deftest chega-em-test
 ;;   (testing "Que é colocada uma pessoa em filas menores que 5"
@@ -47,7 +49,7 @@
    [fila (gen/vector gen/string-alphanumeric 0 4)
     pessoa gen/string-alphanumeric]
    (is (= {:espera (conj fila pessoa)}
-          (lg/chega-em {:espera fila} :espera pessoa)))))
+          (h.logic/chega-em {:espera fila} :espera pessoa)))))
 
 (def nome-aleatorio-gen
   (gen/fmap clojure.string/join
@@ -74,11 +76,10 @@
 
 (defn transfere-ignorando-erro [hospital para]
   (try
-    (lg/transfere hospital :espera para)
+    (h.logic/transfere hospital :espera para)
     (catch IllegalStateException e
-      (println "falhou")
-      hospital
-      )))
+      ;; (println "falhou")
+      hospital)))
 
 (defspec transfere-tem-que-manter-a-quantidade-de-pessoas 1
   (prop/for-all
@@ -90,5 +91,29 @@
    (let [hospital-inicial {:espera espera, :raio-x raio-x, :ultrasom ultrasom}
          hospital-final (reduce transfere-ignorando-erro hospital-inicial vai-para)]
     ;;  (println (count (get hospital-final :raio-x)))
-     (= (lg/total-de-pacientes hospital-inicial)
-        (lg/total-de-pacientes hospital-final)))))
+     (= (h.logic/total-de-pacientes hospital-inicial)
+        (h.logic/total-de-pacientes hospital-final)))))
+
+(defn adiciona-fila-de-espera [[hospital fila]]
+  (assoc hospital :espera fila))
+
+(def hospital-gen
+  (gen/fmap
+   adiciona-fila-de-espera
+   (gen/tuple (gen/not-empty (g/generator h.model/Hospital))
+              fila-nao-cheia-gen)))
+
+(def chega-em-gen 
+  "Gerador de chegadas no hospital"
+  (gen/tuple (gen/return h.logic/chega-em), (gen/return :espera), nome-aleatorio-gen))
+
+(def transfere-gen 
+  "Gerador de transferencias no hospital"
+  (gen/tuple (gen/return h.logic/transfere), gen/keyword, gen/keyword))
+
+(defspec simula-um-dia-do-hospital-nao-perde-pessoas 50
+  (prop/for-all [hospital hospital-gen
+                 acoes (gen/vector
+                        (gen/one-of [chega-em-gen transfere-gen]))]
+                (println acoes)
+                (is (= 1 1))))

@@ -2,26 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224da7dc-8c6c-4039-a73b-a38b41169d34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.calva/output-window/output.calva-repl" beforeDir="false" afterPath="$PROJECT_DIR$/.calva/output-window/output.calva-repl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/financeiro/core.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financeiro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/financeiro/db.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/financeiro/db.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/financeiro/handler.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/financeiro/handler.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/aceitacao/financeiro/auxiliares.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/aceitacao/financeiro/auxiliares.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/aceitacao/financeiro/saldo_aceitacao_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/aceitacao/financeiro/saldo_aceitacao_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unitarios/financeiro/db_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/unitarios/financeiro/db_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unitarios/financeiro/handler_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/unitarios/financeiro/handler_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../testing/hospital/.calva/output-window/output.calva-repl" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/.calva/output-window/output.calva-repl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../testing/hospital/src/hospital/logic.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/src/hospital/logic.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../testing/hospital/test/hospital/logic_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/hospital/test/hospital/logic_test.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testing/Geradores-e-testes-de-propriedades/hospital/.calva/output-window/output.calva-repl" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/Geradores-e-testes-de-propriedades/hospital/.calva/output-window/output.calva-repl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testing/Geradores-e-testes-de-propriedades/hospital/test/hospital/logic_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../testing/Geradores-e-testes-de-propriedades/hospital/test/hospital/logic_test.clj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pCDXAYkurB3DeEdmLYI0fqoBGY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -32,12 +40,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="cursive.last.file.extension./home/luizsantos/IdeaProjects/projetos-clojure/financeiro/src" value="clj" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="ReplState" timestamp="1615457860477">{:repl-history {:ide [], :local [], :remote []}}</component>
+  <component name="ReplState" timestamp="1616809326437">{:repl-history {:ide [], :local [{:command &quot;(def teste \&quot;123\&quot;)&quot;, :offset 17, :ns &quot;financeiro.core&quot;} {:command &quot;teste&quot;, :offset 5, :ns &quot;financeiro.core&quot;} {:command &quot;(defn teste [x]\n  (+ x 1))&quot;, :offset 26, :ns &quot;financeiro.core&quot;} {:command &quot;(defn imprimir []\n  (let [a (teste 5)]\n    a))&quot;, :offset 46, :ns &quot;financeiro.core&quot;} {:command &quot;(imprimir)&quot;, :offset 10, :ns &quot;financeiro.core&quot;} {:command &quot;(defn imprimir [x]\n  (let [a (teste x)]\n    a))&quot;, :offset 47, :ns &quot;financeiro.core&quot;} {:command &quot;(imprimir 10)&quot;, :offset 13, :ns &quot;financeiro.core&quot;}], :remote []}}</component>
   <component name="RunManager">
     <configuration name="REPL for financeiro" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false" temporary="true">
       <module name="financeiro" />
