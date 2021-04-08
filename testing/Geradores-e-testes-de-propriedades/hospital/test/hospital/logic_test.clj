@@ -105,15 +105,24 @@
 
 (def chega-em-gen 
   "Gerador de chegadas no hospital"
-  (gen/tuple (gen/return h.logic/chega-em), (gen/return :espera), nome-aleatorio-gen))
+  (gen/tuple (gen/return h.logic/chega-em) (gen/return :espera) nome-aleatorio-gen))
 
-(def transfere-gen 
-  "Gerador de transferencias no hospital"
-  (gen/tuple (gen/return h.logic/transfere), gen/keyword, gen/keyword))
+(defn transfere-gen [hospital]
+  (let [departamentos  (keys hospital)]
+       "Gerador de transferencias no hospital"
+       (gen/tuple (gen/return h.logic/transfere)
+                  (gen/elements departamentos)
+                  (gen/elements departamentos))))
+
+(defn acao-gen [hospital]
+  (gen/one-of [chega-em-gen (transfere-gen hospital)]))
+
+(defn acoes-gen [hospital]
+  (gen/not-empty (gen/vector (acao-gen hospital) 1 100)))
 
 (defspec simula-um-dia-do-hospital-nao-perde-pessoas 50
-  (prop/for-all [hospital hospital-gen
-                 acoes (gen/vector
-                        (gen/one-of [chega-em-gen transfere-gen]))]
-                (println acoes)
-                (is (= 1 1))))
+  (prop/for-all [hospital hospital-gen]
+                (let [acoes 
+                      (gen/sample (acoes-gen hospital) 1)]
+                  (println acoes)
+                  (is (= 1 1)))))
