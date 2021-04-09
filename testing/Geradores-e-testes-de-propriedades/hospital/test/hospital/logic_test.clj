@@ -110,12 +110,17 @@
              nome-aleatorio-gen
              (gen/return 1)))
 
+(defn adiciona-inexistente-ao-departamento [departamento]
+  (keyword (str departamento "-inexistente")))
+
 (defn transfere-gen [hospital]
-  (let [departamentos  (keys hospital)]
-    "Gerador de transferencias no hospital"
+  "Gerador de transferencias no hospital"
+  (let [departamentos  (keys hospital)
+        departamentos-inexistentes (map adiciona-inexistente-ao-departamento departamentos)
+        todos-os-departamentos (concat departamentos departamentos-inexistentes)]
     (gen/tuple (gen/return h.logic/transfere)
-               (gen/elements departamentos)
-               (gen/elements departamentos)
+               (gen/elements todos-os-departamentos)
+               (gen/elements todos-os-departamentos)
                (gen/return 0))))
 
 (defn acao-gen [hospital]
@@ -133,6 +138,9 @@
         {:hospital hospital-novo 
          :diferenca (+ diferenca-ser-sucesso diferenca-atual)})
       (catch IllegalStateException e
+        situacao)
+      ;esse é o caso super especifico;
+      (catch AssertionError e
         situacao))))
 
 (defspec simula-um-dia-do-hospital-acumula-pessoas 50

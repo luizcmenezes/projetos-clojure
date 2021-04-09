@@ -78,3 +78,68 @@ clj꞉hospital.logic-test꞉> 
 299 296 3
 ; 259 tests finished, all passing 👍, ns: 1, vars: 4
 clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/simula-um-dia-do-hospital-acumula-pessoas
+; Running tests for hospital.logic-test...
+; ERROR in hospital.logic-test/simula-um-dia-do-hospital-acumula-pessoas (line 143):
+; Uncaught exception, not in assertion
+; error: java.lang.AssertionError: Assert failed: (contains? hospital de) (logic.clj)
+; expected:
+undefined
+; 209 tests finished, problems found. 😭 errors: 1, failures: 0, ns: 1, vars: 4
+clj꞉hospital.logic-test꞉> 
+; Evaluating file: logic_test.clj
+#'hospital.logic-test/simula-um-dia-do-hospital-acumula-pessoas
+; Running tests for hospital.logic-test...
+6 1 5
+7 6 1
+10 3 7
+8 5 3
+14 11 3
+13 7 6
+22 18 4
+13 10 3
+19 17 2
+40 39 1
+42 37 5
+15 12 3
+17 12 5
+15 11 4
+85 79 6
+66 62 4
+27 22 5
+49 45 4
+80 76 4
+39 35 4
+144 139 5
+104 99 5
+145 141 4
+236 232 4
+81 79 2
+39 36 3
+88 84 4
+38 36 2
+348 345 3
+99 94 5
+53 51 2
+114 110 4
+99 94 5
+180 178 2
+45 40 5
+511 508 3
+205 203 2
+132 129 3
+457 456 1
+616 613 3
+137 135 2
+469 466 3
+165 163 2
+762 761 1
+927 923 4
+678 673 5
+328 323 5
+874 873 1
+228 223 5
+628 623 5
+; 259 tests finished, all passing 👍, ns: 1, vars: 4
+clj꞉hospital.logic-test꞉> 
