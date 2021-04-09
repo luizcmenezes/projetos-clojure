@@ -103,16 +103,20 @@
    (gen/tuple (gen/not-empty (g/generator h.model/Hospital))
               fila-nao-cheia-gen)))
 
-(def chega-em-gen 
+(def chega-em-gen
   "Gerador de chegadas no hospital"
-  (gen/tuple (gen/return h.logic/chega-em) (gen/return :espera) nome-aleatorio-gen))
+  (gen/tuple (gen/return h.logic/chega-em)
+             (gen/return :espera)
+             nome-aleatorio-gen
+             (gen/return 1)))
 
 (defn transfere-gen [hospital]
   (let [departamentos  (keys hospital)]
-       "Gerador de transferencias no hospital"
-       (gen/tuple (gen/return h.logic/transfere)
-                  (gen/elements departamentos)
-                  (gen/elements departamentos))))
+    "Gerador de transferencias no hospital"
+    (gen/tuple (gen/return h.logic/transfere)
+               (gen/elements departamentos)
+               (gen/elements departamentos)
+               (gen/return 0))))
 
 (defn acao-gen [hospital]
   (gen/one-of [chega-em-gen (transfere-gen hospital)]))
@@ -120,9 +124,26 @@
 (defn acoes-gen [hospital]
   (gen/not-empty (gen/vector (acao-gen hospital) 1 100)))
 
-(defspec simula-um-dia-do-hospital-nao-perde-pessoas 50
-  (prop/for-all [hospital hospital-gen]
-                (let [acoes 
-                      (gen/sample (acoes-gen hospital) 1)]
-                  (println acoes)
-                  (is (= 1 1)))))
+
+(defn executa-uma-acao [situacao [funcao param1 param2 diferenca-ser-sucesso]]
+  (let [hospital (:hospital situacao)
+        diferenca-atual (:diferenca situacao)]
+    (try
+      (let [hospital-novo (funcao hospital param1 param2)]
+        {:hospital hospital-novo 
+         :diferenca (+ diferenca-ser-sucesso diferenca-atual)})
+      (catch IllegalStateException e
+        situacao))))
+
+(defspec simula-um-dia-do-hospital-acumula-pessoas 50
+  (prop/for-all
+   [hospital-inicial hospital-gen]
+   (let [acoes (gen/generate (acoes-gen hospital-inicial))
+         situacao-inicial {:hospital hospital-inicial :diferenca 0}
+         total-de-pacientes-inicial (h.logic/total-de-pacientes hospital-inicial)
+         situacao-final (reduce executa-uma-acao situacao-inicial acoes)
+         total-de-pacientes-final (h.logic/total-de-pacientes (:hospital situacao-final))]
+        ;let [[funcao param1 param2]] = acao
+        ; (funcao param1 param2)
+     (println total-de-pacientes-final total-de-pacientes-inicial (:diferenca situacao-final))
+     (is (= (- total-de-pacientes-final (:diferenca situacao-final)) total-de-pacientes-inicial)))))
