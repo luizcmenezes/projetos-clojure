@@ -5,7 +5,7 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
-; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.25.8"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.25.10"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS: 
@@ -18,4 +18,17 @@
 clj꞉user꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉user꞉> 
-; nREPL Connection was closed
+; Evaluating file: saldo_aceitacao_test.clj
+Run `(doc midje)` for Midje usage.
+true
+clj꞉financeiro.saldo-aceitacao-test꞉> 
+(5 4 3 2 1)
+clj꞉financeiro.saldo-aceitacao-test꞉> 
+#function[clojure.core/partial/fn--5824]
+clj꞉financeiro.saldo-aceitacao-test꞉> 
+; Execution error (ClassCastException) at financeiro.saldo-aceitacao-test/eval23447 (form-init12025979849645399644.clj:67).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉financeiro.saldo-aceitacao-test꞉> 
+; Execution error (ClassCastException) at financeiro.saldo-aceitacao-test/eval23449 (form-init12025979849645399644.clj:67).
+; class clojure.core$second__5377 cannot be cast to class java.lang.Number (clojure.core$second__5377 is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉financeiro.saldo-aceitacao-test꞉> 
