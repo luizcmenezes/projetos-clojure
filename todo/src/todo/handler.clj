@@ -4,8 +4,7 @@
             [compojure.handler :as handler]
             [ring.middleware.json :as json]
             [ring.util.response :refer [response]]
-            [todo.query :as query]
-            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+            [todo.query :as query]))
 
 (defroutes app-routes
   (GET "/api/todos" []
@@ -25,5 +24,4 @@
 (def app
   (-> (handler/api app-routes)
       (json/wrap-json-params)
-      (json/wrap-json-response)
-      (wrap-defaults app-routes site-defaults)))
+      (json/wrap-json-response)))

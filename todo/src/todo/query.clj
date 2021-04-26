@@ -1,8 +1,8 @@
 (ns todo.query
   (:require [todo.database]
-            korma.core :refer :all))
+            [korma.core :refer :all]))
 
-(defentily items)
+(defentity items)
 
 (defn get-todos []
   (select items))
