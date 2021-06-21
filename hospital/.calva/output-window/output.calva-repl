@@ -5,7 +5,7 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
-; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.25.8"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.26.0"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS: 
@@ -18,153 +18,99 @@
 clj꞉hospital.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉hospital.core꞉> 
-<<<<<<< HEAD
-; Evaluating file: aula3.clj
-{:id 15, :nome "Guilherme"}
-; Syntax error (ExceptionInfo) compiling at (src/hospital/aula3.clj:17:1).
-; Input to novo-paciente does not match schema: 
-
-	   [(named (not (pos-int? -15)) id) nil]  
-=======
-; Evaluating file: aula5.clj
-[:raio-x]
-; Syntax error macroexpanding clojure.core/defn at (src/hospital/aula5.clj:24:1).
-; :- - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
-:- - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body
-; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
->>>>>>> 2c037c62c91aa4cd7721c79cf67856c34a2a42aa
-
+(use 'hospital.core)
+nil
 clj꞉hospital.core꞉> 
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-[:raio-x]
-; Syntax error macroexpanding clojure.core/defn at (src/hospital/aula5.clj:24:1).
-; :- - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
-:- - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body
-; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
-
-<<<<<<< HEAD
-; Evaluation of file aula3.clj failed: class clojure.lang.Compiler$CompilerException
-
+precos
+; Syntax error compiling at (.calva/output-window/output.calva-repl:1:7848).
+; Unable to resolve symbol: precos in this context
 clj꞉hospital.core꞉> 
-clj꞉hospital.aula3꞉> 
-; Evaluating file: aula3.clj
-{:id 15, :nome "Guilherme"}
-; Syntax error (ExceptionInfo) compiling at (src/hospital/aula3.clj:17:1).
-; Input to novo-paciente does not match schema: 
-
-	   [(named (not (inteiro-positivo -15)) id) nil]  
-
-
-; Evaluation of file aula3.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉hospital.aula3꞉> 
-clj꞉hospital.aula3꞉> 
-{:id 15, :nome "Guilherme"}
+#'hospital.core/precos
+clj꞉hospital.core꞉> 
+precos
+[30 700 1000]
+clj꞉hospital.core꞉> 
+30
 nil
-clj꞉hospital.aula3꞉> 
-{:id 15, :nome "Guilherme"}
-clj꞉hospital.aula3꞉> 
-; Evaluating file: aula3.clj
-{:paciente {:id 15, :nome "Guilherme"},
- :valor 15.53,
- :procedimento :raio-x}
+clj꞉hospital.core꞉> 
 nil
-clj꞉hospital.aula3꞉> 
-{:paciente {:id 15, :nome "Guilherme"}, :valor 15.53, :procedimento :raio-x}
-clj꞉hospital.aula3꞉> 
-{:paciente {:id 15, :nome "Guilherme"},
- :valor 15.53,
- :procedimento :raio-x}
 nil
-clj꞉hospital.aula3꞉> 
-; Execution error (ExceptionInfo) at hospital.aula3/eval9081$novo-paciente (aula3.clj:12).
-; Input to novo-paciente does not match schema: 
-
-	   [(named (not (inteiro-positivo -15)) id) nil]  
-
-
-clj꞉hospital.aula3꞉> 
-{:paciente {:id 15, :nome "Guilherme"},
- :valor 15.53,
- :procedimento :raio-x}
+clj꞉hospital.core꞉> 
+; Execution error (ArityException) at hospital.core/eval7406 (form-init3780577775477988191.clj:33).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉hospital.core꞉> 
+30
 nil
-clj꞉hospital.aula3꞉> 
-=======
-clj꞉hospital.aula5꞉> 
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-[:raio-x]
-#'hospital.aula5/imprime-relatorio-de-paciente
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-#'hospital.aula5/imprime-relatorio-de-paciente
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-; Syntax error (ExceptionInfo) compiling at (src/hospital/aula5.clj:53:1).
-; Input to adiciona-paciente does not match schema: 
-
-	   [nil (named {:plano missing-required-key} paciente)]  
-
-
-; Evaluation of file aula5.clj failed: class clojure.lang.Compiler$CompilerException
-
-clj꞉hospital.aula5꞉> 
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 15 são (01/01/2019 01/03/2019)
-[01/02/2019 01/01/2020]
+clj꞉hospital.core꞉> 
+1000
 nil
-clj꞉hospital.aula5꞉> 
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 15 são (01/01/2019 01/03/2019)
-[01/02/2019 01/01/2020]
+clj꞉hospital.core꞉> 
 nil
-clj꞉hospital.aula5꞉> 
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 15 são (01/01/2019 01/03/2019)
-[01/02/2019 01/01/2020]
 nil
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 20 são [01/02/2019 01/01/2020]
+clj꞉hospital.core꞉> 
+17
 nil
-clj꞉hospital.aula5꞉> 
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 20 são [01/02/2019 01/01/2020]
+clj꞉hospital.core꞉> 
+Não encontrado
 nil
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 15 são (01/01/2019 01/03/2019)
+clj꞉hospital.core꞉> 
+700
 nil
-clj꞉hospital.aula5꞉> 
-; Evaluating file: aula5.clj
-{15 {:id 15, :nome "Guilherme", :plano [:raio-x]},
- 20 {:id 20, :nome "Danilea", :plano [:ultrasom]},
- 25 {:id 25, :nome "Paulo", :plano []}}
-{15 ("01/01/2019" "01/03/2019"), 20 ["01/02/2019" "01/01/2020"]}
-Visitas do paciente 15 são (01/01/2019 01/03/2019)
+clj꞉hospital.core꞉> 
+[30 700 1000 5]
 nil
-clj꞉hospital.aula5꞉> 
->>>>>>> 2c037c62c91aa4cd7721c79cf67856c34a2a42aa
+clj꞉hospital.core꞉> 
+[30 700 1000]
+clj꞉hospital.core꞉> 
+[31 700 1000]
+clj꞉hospital.core꞉> 
+[30 701 1000]
+clj꞉hospital.core꞉> 
+[31 700 1000]
+clj꞉hospital.core꞉> 
+(
+; Execution error (ArityException) at hospital.core/eval7428 (form-init3780577775477988191.clj:55).
+; Wrong number of args (1) passed to: hospital.core/valor-descontado
+clj꞉hospital.core꞉> 
+; Evaluating file: core.clj
+Função com parâmetro
+900N
+100
+900N
+100
+100
+301000nil700
+[30 700 1000 5]
+(30 630N 900N)
+nil
+clj꞉hospital.core꞉> 
+; Evaluating file: core.clj
+Função com parâmetro
+900N
+100
+900N
+100
+100
+301000nil700
+[30 700 1000 5]
+(30 630N 900N)
+nil
+clj꞉hospital.core꞉> 
+(30 630N 900N)
+nil
+clj꞉hospital.core꞉> 
+(0 1 2 3 4 5 6 7 8 9)
+nil
+clj꞉hospital.core꞉> 
+(0 2 4 6 8)
+nil
+clj꞉hospital.core꞉> 
+(700 1000)
+clj꞉hospital.core꞉> 
+(0 2 4 6 8)
+nil
+clj꞉hospital.core꞉> 
+(700 1000)
+clj꞉hospital.core꞉> 
+(700 1000)
+clj꞉hospital.core꞉> 
