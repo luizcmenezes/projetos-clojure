@@ -1,0 +1,82 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+c o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Aborting jack-in. No project type selected.
+; Evaluating file: servidor.clj
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+#'servico-clojure-pedestal.servidor/t
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"OIOIOIOIOIOI"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+#'servico-clojure-pedestal.servidor/restart-server
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 200, :body "{}", :headers {"Strict-Transport-Security" "max-age=31536000; includeSubdomains", "X-Frame-Options" "DENY", "X-Content-Type-Options" "nosniff", "X-XSS-Protection" "1; mode=block", "X-Download-Options" "noopen", "X-Permitted-Cross-Domain-Policies" "none", "Content-Security-Policy" "object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;", "Content-Type" "application/json"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+; Evaluating file: servidor.clj
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+; Evaluating file: servidor.clj
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 404, :body "Not Found", :headers {"Content-Type" "text/plain"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+#'servico-clojure-pedestal.servidor/routes
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 404, :body "Not Found", :headers {"Content-Type" "text/plain"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 200, :body "Bem vindo Luiz", :headers {"Strict-Transport-Security" "max-age=31536000; includeSubdomains", "X-Frame-Options" "DENY", "X-Content-Type-Options" "nosniff", "X-XSS-Protection" "1; mode=block", "X-Download-Options" "noopen", "X-Permitted-Cross-Domain-Policies" "none", "Content-Security-Policy" "object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;", "Content-Type" "application/json"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+#'servico-clojure-pedestal.servidor/funcao-hello
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 200, :body "Bem vindo Luiz", :headers {"Strict-Transport-Security" "max-age=31536000; includeSubdomains", "X-Frame-Options" "DENY", "X-Content-Type-Options" "nosniff", "X-XSS-Protection" "1; mode=block", "X-Download-Options" "noopen", "X-Permitted-Cross-Domain-Policies" "none", "Content-Security-Policy" "object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;", "Content-Type" "application/json"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+#'servico-clojure-pedestal.servidor/routes
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 200, :body "Bem vindo clojure API", :headers {"Strict-Transport-Security" "max-age=31536000; includeSubdomains", "X-Frame-Options" "DENY", "X-Content-Type-Options" "nosniff", "X-XSS-Protection" "1; mode=block", "X-Download-Options" "noopen", "X-Permitted-Cross-Domain-Policies" "none", "Content-Security-Policy" "object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;", "Content-Type" "application/json"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+; Evaluating file: servidor.clj
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 
+{:status 200, :body "Bem vindo clojure API", :headers {"Strict-Transport-Security" "max-age=31536000; includeSubdomains", "X-Frame-Options" "DENY", "X-Content-Type-Options" "nosniff", "X-XSS-Protection" "1; mode=block", "X-Download-Options" "noopen", "X-Permitted-Cross-Domain-Policies" "none", "Content-Security-Policy" "object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:;", "Content-Type" "application/json"}}
+clj꞉servico-clojure-pedestal.servidor꞉> 
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+nil
+clj꞉servico-clojure-pedestal.servidor꞉> 

@@ -1,6 +1,4 @@
-(ns servico-clojure-pedestal.core)
+(ns servico-clojure-pedestal.core
+  (:require [servico-clojure-pedestal.servidor :as serv]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(serv/start-server)
