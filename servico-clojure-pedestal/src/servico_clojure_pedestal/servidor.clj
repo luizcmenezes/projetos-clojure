@@ -1,14 +1,21 @@
 (ns servico-clojure-pedestal.servidor
+  (:use clojure.pprint)
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [io.pedestal.test :as test]))
+            [io.pedestal.test :as test]
+            [servico-clojure-pedestal.database :as database]))
 
-(def store (atom {}))
+(defn assoc-store [context]
+  (update context :request assoc :store database/store))
 
-(defn lista-tarefa [request]
+(def db-interceptor
+  {:name :db-interceptor
+   :enter assoc-store})
+
+(defn listar-tarefa [request]
   {:headers {"Content-Type" "application/json"}
    :status 200
-   :body @store})
+   :body @(:store request)})
 
 (defn criar-tarefa-mapa [uuid nome status]
   {:uuid uuid :nome nome :status status})
@@ -17,7 +24,8 @@
   (let [uuid (java.util.UUID/randomUUID)
         nome (get-in request [:query-params :nome])
         status (get-in request [:query-params :status])
-        tarefa (criar-tarefa-mapa uuid nome status)]
+        tarefa (criar-tarefa-mapa uuid nome status)
+        store (:store request)]
     (swap! store assoc uuid tarefa)
     {:headers {"Content-Type" "application/json"}
      :status 200
@@ -27,12 +35,35 @@
 (defn funcao-hello [request]
   {:headers {"Content-Type" "application/json"}
    :status 200
-   :body (str "Bem vindo " (get-in request [:query-params :name] "ao mundo clojure API"))})
+   :body (str "Bem vindo " (get-in request [:query-params :name] "DEV"))})
+
+(defn deletar-tarefa [request]
+  (let [store (:store request)
+        tarefa-id (get-in request [:path-params :id])
+        tarefa-uuid (java.util.UUID/fromString tarefa-id)]
+    (swap! store dissoc tarefa-uuid)
+    {:status 200
+     :body {:mensasagem "Removida com sucesso!"}}))
+
+(defn atualizar-tarefa [request]
+  (let [tarefa-id (get-in request [:path-params :id])
+        tarefa-uuid (java.util.UUID/fromString tarefa-id)
+        nome (get-in request [:query-params :nome])
+        status (get-in request [:query-params :status])
+        tarefa (criar-tarefa-mapa tarefa-uuid nome status)
+        store (:store request)]
+    (swap! store assoc tarefa-uuid tarefa)
+    {:headers {"Content-Type" "application/json"}
+     :status 200
+     :body {:mensagem "Tarefa atualizada com sucesso!"
+            :tarefa tarefa}}))
 
 (def routes (route/-expand-routes
              #{["/ola" :get funcao-hello :route-name :hello-world]
-               ["/tarefa" :post criar-tarefa :route-name :criar-tarefa]
-               ["/tarefa" :get lista-tarefa :route-name :lista-tarefa]}))
+               ["/tarefa" :post [db-interceptor criar-tarefa] :route-name :criar-tarefa]
+               ["/tarefa" :get [db-interceptor listar-tarefa] :route-name :listar-tarefa]
+               ["/tarefa/:id" :delete [db-interceptor deletar-tarefa] :route-name :deletar-tarefa]
+               ["/tarefa/:id" :patch [db-interceptor atualizar-tarefa] :route-name :atualizar-tarefa]}))
 
 (def service-map {::http/routes routes
                   ::http/port 9999
@@ -59,12 +90,17 @@
 
 (comment
   (test-request :get "/ola?name=Luiz")
-  (test-request :get "/ola")
-  (test-request :post "/tarefa?nome=Correr&status=pendente")
-  (test-request :post "/tarefa?nome=Correr&status=feito")
+  (pprint (test-request :get "/ola"))
+  (pprint (test-request :post "/tarefa?nome=Correr&status=pendente"))
+  (pprint (test-request :post "/tarefa?nome=Ler&status=Pendente"))
 
-  (test-request :get "/tarefa")
 
-  (restart-server)
+  (pprint (clojure.edn/read-string (:body (test-request :get "/tarefa"))))
+  (pprint (test-request :get "/tarefa"))
+
+  
+  (try (start-server) (catch Exception e (println "Erro ao executar start" (.getMessage e))))
+  (try (restart-server) (catch Exception e (println "Erro ao executar restart" (.getMessage e))))
+  (pprint @database/store)
   #_.)
 
