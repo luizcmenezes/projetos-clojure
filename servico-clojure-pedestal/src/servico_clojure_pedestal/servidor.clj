@@ -1,106 +1,57 @@
 (ns servico-clojure-pedestal.servidor
   (:use clojure.pprint)
   (:require [io.pedestal.http :as http]
-            [io.pedestal.http.route :as route]
+            [servico-clojure-pedestal.database :as database]
             [io.pedestal.test :as test]
-            [servico-clojure-pedestal.database :as database]))
+            [io.pedestal.interceptor :as i]
+            [com.stuartsierra.component :as component]))
 
-(defn assoc-store [context]
-  (update context :request assoc :store database/store))
+(defrecord Servidor [database routes]
+  component/Lifecycle
 
-(def db-interceptor
-  {:name :db-interceptor
-   :enter assoc-store})
+  (start [this]
+    (defn assoc-store [context]
+      (update context :request assoc :store (:store database)))
 
-(defn listar-tarefa [request]
-  {:headers {"Content-Type" "application/json"}
-   :status 200
-   :body @(:store request)})
+    (def db-interceptor
+      {:name :db-interceptor
+       :enter assoc-store})
 
-(defn criar-tarefa-mapa [uuid nome status]
-  {:uuid uuid :nome nome :status status})
+    (def service-map-base {::http/routes (:endpoints routes)
+                           ::http/port 9999
+                           ::http/type :jetty
+                           ::http/join? false})
 
-(defn criar-tarefa [request]
-  (let [uuid (java.util.UUID/randomUUID)
-        nome (get-in request [:query-params :nome])
-        status (get-in request [:query-params :status])
-        tarefa (criar-tarefa-mapa uuid nome status)
-        store (:store request)]
-    (swap! store assoc uuid tarefa)
-    {:headers {"Content-Type" "application/json"}
-     :status 200
-     :body {:mensagem "Tarefa registrada com sucesso!"
-            :tarefa tarefa}}))
+    (def service-map (-> service-map-base
+                         (http/default-interceptors)
+                         (update ::http/interceptor conj (i/interceptor db-interceptor))))
 
-(defn funcao-hello [request]
-  {:headers {"Content-Type" "application/json"}
-   :status 200
-   :body (str "Bem vindo " (get-in request [:query-params :name] "DEV"))})
+    (defonce server (atom nil))
 
-(defn deletar-tarefa [request]
-  (let [store (:store request)
-        tarefa-id (get-in request [:path-params :id])
-        tarefa-uuid (java.util.UUID/fromString tarefa-id)]
-    (swap! store dissoc tarefa-uuid)
-    {:status 200
-     :body {:mensasagem "Removida com sucesso!"}}))
+    (defn start-server []
+      (reset! server (http/start (http/create-server service-map)))
+      (prn "Started server http"))
 
-(defn atualizar-tarefa [request]
-  (let [tarefa-id (get-in request [:path-params :id])
-        tarefa-uuid (java.util.UUID/fromString tarefa-id)
-        nome (get-in request [:query-params :nome])
-        status (get-in request [:query-params :status])
-        tarefa (criar-tarefa-mapa tarefa-uuid nome status)
-        store (:store request)]
-    (swap! store assoc tarefa-uuid tarefa)
-    {:headers {"Content-Type" "application/json"}
-     :status 200
-     :body {:mensagem "Tarefa atualizada com sucesso!"
-            :tarefa tarefa}}))
+    (defn stop-server []
+      (http/stop @server)
+      (prn "Stoted server http"))
 
-(def routes (route/-expand-routes
-             #{["/ola" :get funcao-hello :route-name :hello-world]
-               ["/tarefa" :post [db-interceptor criar-tarefa] :route-name :criar-tarefa]
-               ["/tarefa" :get [db-interceptor listar-tarefa] :route-name :listar-tarefa]
-               ["/tarefa/:id" :delete [db-interceptor deletar-tarefa] :route-name :deletar-tarefa]
-               ["/tarefa/:id" :patch [db-interceptor atualizar-tarefa] :route-name :atualizar-tarefa]}))
+    (defn restart-server []
+      (stop-server)
+      (start-server)
+      (prn "Restarted server http"))
 
-(def service-map {::http/routes routes
-                  ::http/port 9999
-                  ::http/type :jetty
-                  ::http/join? false})
+    (defn test-request [verb url]
+      (test/response-for (::http/service-fn @server) verb url))
 
-(defonce server (atom nil))
+    (defn start []
+      (try (start-server) (catch Exception e (println "Erro ao executar start" (.getMessage e))))
+      (try (restart-server) (catch Exception e (println "Erro ao executar restart" (.getMessage e)))))
+    (start)
+    (assoc this :test-request test-request))
 
-(defn start-server []
-  (reset! server (http/start (http/create-server service-map)))
-  (prn "Started server http"))
+  (stop [this]
+        (assoc this :test-request nil)))
 
-(defn stop-server []
-  (http/stop @server)
-  (prn "Stoted server http"))
-
-(defn restart-server []
-  (stop-server)
-  (start-server)
-  (prn "Restarted server http"))
-
-(defn test-request [verb url]
-  (test/response-for (::http/service-fn @server) verb url))
-
-(comment
-  (test-request :get "/ola?name=Luiz")
-  (pprint (test-request :get "/ola"))
-  (pprint (test-request :post "/tarefa?nome=Correr&status=pendente"))
-  (pprint (test-request :post "/tarefa?nome=Ler&status=Pendente"))
-
-
-  (pprint (clojure.edn/read-string (:body (test-request :get "/tarefa"))))
-  (pprint (test-request :get "/tarefa"))
-
-  
-  (try (start-server) (catch Exception e (println "Erro ao executar start" (.getMessage e))))
-  (try (restart-server) (catch Exception e (println "Erro ao executar restart" (.getMessage e))))
-  (pprint @database/store)
-  #_.)
-
+(defn new-servidor []
+  (map->Servidor {}))

@@ -19,3 +19,158 @@
 clj꞉servico-clojure-pedestal.core꞉> 
 ; Jack-in done.
 clj꞉servico-clojure-pedestal.core꞉> 
+; Syntax error compiling at (src/servico_clojure_pedestal/main.clj:9:3).
+; No such namespace: component
+clj꞉servico-clojure-pedestal.main꞉> 
+; Syntax error compiling at (src/servico_clojure_pedestal/main.clj:14:23).
+; No such namespace: component
+clj꞉servico-clojure-pedestal.main꞉> 
+nil
+clj꞉servico-clojure-pedestal.main꞉> 
+#'servico-clojure-pedestal.main/my-component-system
+clj꞉servico-clojure-pedestal.main꞉> 
+Start database
+"Started server http"
+"Stoted server http"
+"Started server http"
+"Restarted server http"
+#'servico-clojure-pedestal.main/component-result
+clj꞉servico-clojure-pedestal.main꞉> 
+{:database {:store #<Atom@7955ceef: {}>},
+ :routes
+ {:endpoints
+  ({:path "/tarefa/:id",
+    :method :delete,
+    :path-constraints {:id "([^/]+)"},
+    :path-re #"/\Qtarefa\E/([^/]+)",
+    :path-parts ["tarefa" :id],
+    :interceptors
+    [{:name nil,
+      :enter
+      #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+      :leave nil,
+      :error nil}],
+    :route-name :deletar-tarefa,
+    :path-params [:id]}
+   {:path "/tarefa/:id",
+    :method :patch,
+    :path-constraints {:id "([^/]+)"},
+    :path-re #"/\Qtarefa\E/([^/]+)",
+    :path-parts ["tarefa" :id],
+    :interceptors
+    [{:name nil,
+      :enter
+      #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+      :leave nil,
+      :error nil}],
+    :route-name :atualizar-tarefa,
+    :path-params [:id]}
+   {:path "/tarefa",
+    :method :get,
+    :path-re #"/\Qtarefa\E",
+    :path-parts ["tarefa"],
+    :interceptors
+    [{:name nil,
+      :enter
+      #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+      :leave n
+il,
+      :error nil}],
+    :route-name :listar-tarefa,
+    :path-params []}
+   {:path "/tarefa",
+    :method :post,
+    :path-re #"/\Qtarefa\E",
+    :path-parts ["tarefa"],
+    :interceptors
+    [{:name nil,
+      :enter
+      #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+      :leave nil,
+      :error nil}],
+    :route-name :criar-tarefa,
+    :path-params []}
+   {:path "/ola",
+    :method :get,
+    :path-re #"/\Qola\E",
+    :path-parts ["ola"],
+    :interceptors
+    [{:name nil,
+      :enter
+      #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+      :leave nil,
+      :error nil}],
+    :route-name :hello-world,
+    :path-params []})},
+ :servidor
+ {:database {:store #<Atom@7955ceef: {}>},
+  :routes
+  {:endpoints
+   ({:path "/tarefa/:id",
+     :method :delete,
+     :path-constraints {:id "([^/]+)"},
+     :path-re #"/\Qtarefa\E/([^/]+)",
+     :path-parts ["tarefa" :id],
+     :interceptors
+     [{:name nil,
+       :enter
+       #function[io.pedestal.interceptor/eval5816/fn--5817/
+fn--5818],
+       :leave nil,
+       :error nil}],
+     :route-name :deletar-tarefa,
+     :path-params [:id]}
+    {:path "/tarefa/:id",
+     :method :patch,
+     :path-constraints {:id "([^/]+)"},
+     :path-re #"/\Qtarefa\E/([^/]+)",
+     :path-parts ["tarefa" :id],
+     :interceptors
+     [{:name nil,
+       :enter
+       #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+       :leave nil,
+       :error nil}],
+     :route-name :atualizar-tarefa,
+     :path-params [:id]}
+    {:path "/tarefa",
+     :method :get,
+     :path-re #"/\Qtarefa\E",
+     :path-parts ["tarefa"],
+     :interceptors
+     [{:name nil,
+       :enter
+       #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+       :leave nil,
+       :error nil}],
+     :route-name :listar-tarefa,
+     :path-params []}
+    {:path "/tarefa",
+     :method :post,
+     :path-re #"/\Qtarefa\E",
+     :path-parts ["tarefa"],
+     :interceptors
+     [{:name nil,
+       :enter
+       #function[io.pedestal.interceptor/eval5816/fn--5817/fn--581
+8],
+       :leave nil,
+       :error nil}],
+     :route-name :criar-tarefa,
+     :path-params []}
+    {:path "/ola",
+     :method :get,
+     :path-re #"/\Qola\E",
+     :path-parts ["ola"],
+     :interceptors
+     [{:name nil,
+       :enter
+       #function[io.pedestal.interceptor/eval5816/fn--5817/fn--5818],
+       :leave nil,
+       :error nil}],
+     :route-name :hello-world,
+     :path-params []})},
+  :test-request
+  #function[servico-clojure-pedestal.servidor.Servidor/test-request--22008]}}
+nil
+clj꞉servico-clojure-pedestal.main꞉> 
